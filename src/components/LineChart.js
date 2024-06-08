@@ -110,6 +110,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
           ],
         },
       ]}
+      animate={false}
     />
   );
 };

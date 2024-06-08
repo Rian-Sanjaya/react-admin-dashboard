@@ -10,7 +10,7 @@ import {
   Search,
 } from "@mui/icons-material"
 
-const Topbar = () => {
+const Topbar = ({  sizeWindow, isCollapse}) => {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
   const colorMode = useContext(ColorModeContext)
@@ -22,7 +22,8 @@ const Topbar = () => {
       p={2}
       position="fixed"
       zIndex={1}
-      width="calc(100% - 270px)"
+      // width="calc(100% - 270px)"
+      className={`topbar-container ${sizeWindow <= 900 || isCollapse ? 'mobile' : ''}`}
     >
       {/* Search Bar */}
       <Box

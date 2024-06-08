@@ -43,6 +43,7 @@ const Team = () => {
         return (
           <Box
             width="60%"
+            minWidth="72px"
             m="0 auto"
             p="5px"
             display="flex"
