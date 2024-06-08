@@ -12,7 +12,6 @@ import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
-import "./style.scss";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -46,7 +45,6 @@ const Dashboard = () => {
         gridTemplateColumns="repeat(12, 1fr)"
         gridAutoRows="140px"
         gap="20px"
-        className="content-grid-container"
       >
         {/* ROW 1 */}
         <Box
@@ -55,7 +53,6 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          className="box1"
         >
           <StatBox
             title="12,361"
@@ -75,7 +72,6 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          className="box2"
         >
           <StatBox
             title="431,225"
@@ -95,7 +91,6 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          className="box3"
         >
           <StatBox
             title="32,441"
@@ -115,7 +110,6 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          className="box4"
         >
           <StatBox
             title="1,325,134"
@@ -135,7 +129,6 @@ const Dashboard = () => {
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
-          className="box5"
         >
           <Box
             mt="25px"
@@ -177,7 +170,6 @@ const Dashboard = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           overflow="auto"
-          className="box6"
         >
           <Box
             display="flex"
@@ -230,7 +222,6 @@ const Dashboard = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"
-          className="box7"
         >
           <Typography variant="h5" fontWeight="600">
             Campaign
@@ -256,7 +247,6 @@ const Dashboard = () => {
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
-          className="box8"
         >
           <Typography
             variant="h5"
@@ -274,7 +264,6 @@ const Dashboard = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           padding="30px"
-          className="box9"
         >
           <Typography
             variant="h5"

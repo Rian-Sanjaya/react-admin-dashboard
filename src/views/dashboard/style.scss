@@ -1,0 +1,35 @@
+.content-grid-container {
+  @media screen and (max-width: 1200px) {
+    .box1, .box2, .box3, .box4 {
+      grid-column: span 6;
+    }
+
+    .box5 {
+      grid-column: span 12;
+    }
+
+    .box6, .box7, .box8, .box9 {
+      grid-column: span 6;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    
+  }
+  
+  @media screen and (max-width: 768px) {
+    .box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9 {
+      grid-column: span 12;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    
+  }
+}
+
+// @media screen and (max-width: 1024px) {
+//   .content-grid-container {
+//     background: blue;
+//   }
+// }

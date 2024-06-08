@@ -46,7 +46,7 @@ const Sidebar = () => {
       position="fixed"
       overflow="auto"
       height="100%"
-      zIndex={1}
+      zIndex={2}
       sx={{
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
