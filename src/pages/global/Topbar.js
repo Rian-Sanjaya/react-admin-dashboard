@@ -1,5 +1,16 @@
-import { Box, IconButton, useTheme, InputBase } from "@mui/material"
-import { useContext } from "react"
+import {
+  Box,
+  IconButton,
+  useTheme,
+  InputBase,
+  Badge,
+  Tooltip,
+  Menu,
+  MenuItem,
+  Typography,
+  Avatar,
+} from "@mui/material"
+import { useContext, useState } from "react"
 import { ColorModeContext, tokens } from "../../theme"
 import {
   LightModeOutlined,
@@ -10,10 +21,22 @@ import {
   Search,
 } from "@mui/icons-material"
 
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 const Topbar = ({  sizeWindow, isCollapse}) => {
   const theme = useTheme()
   const colors = tokens(theme.palette.mode)
   const colorMode = useContext(ColorModeContext)
+
+  const [anchorElUser, setAnchorElUser] =  useState(null)
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
 
   return (
     <Box
@@ -24,6 +47,7 @@ const Topbar = ({  sizeWindow, isCollapse}) => {
       zIndex={1}
       // width="calc(100% - 270px)"
       className={`topbar-container ${sizeWindow <= 900 || isCollapse ? 'mobile' : ''}`}
+      backgroundColor={colors.primary[500]}
     >
       {/* Search Bar */}
       <Box
@@ -38,21 +62,54 @@ const Topbar = ({  sizeWindow, isCollapse}) => {
       </Box>
 
       <Box display="flex">
-        <IconButton onClick={colorMode.toggleColorMode}>
-          {theme.palette.mode === 'dark'
-            ? <DarkModeOutlined />
-            : <LightModeOutlined />
-          }
-        </IconButton>
-        <IconButton>
-          <NotificationsOutlined />
-        </IconButton>
-        <IconButton>
-          <SettingsOutlined />
-        </IconButton>
-        <IconButton>
-          <PersonOutlined />
-        </IconButton>
+        <Tooltip title={`${theme.palette.mode === 'dark' ? ' Dark Mode`' : ' Light Mode`'}`} arrow>
+          <IconButton onClick={colorMode.toggleColorMode}>
+            {theme.palette.mode === 'dark'
+              ? <DarkModeOutlined />
+              : <LightModeOutlined />
+            }
+          </IconButton>
+        </Tooltip>
+        <Tooltip title='Notification' arrow>
+          <IconButton>
+            <Badge color="error" badgeContent={3} showZero>
+              <NotificationsOutlined />
+            </Badge>
+          </IconButton>
+        </Tooltip>
+        <Tooltip title='Setting' arrow>
+          <IconButton>
+            <SettingsOutlined />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title='Open Profile' arrow>
+          <IconButton onClick={handleOpenUserMenu}>
+            {/* <PersonOutlined /> */}
+            <Avatar alt="Rian S" src={`../../assets/user.png`} sx={{ width: 24, height: 24 }} />
+          </IconButton>
+        </Tooltip>
+        <Menu
+          sx={{ mt: '45px' }}
+          id="menu-appbar"
+          anchorEl={anchorElUser}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          keepMounted
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          open={Boolean(anchorElUser)}
+          onClose={handleCloseUserMenu}
+        >
+          {settings.map((setting) => (
+            <MenuItem key={setting} onClick={handleCloseUserMenu}>
+              <Typography textAlign="center">{setting}</Typography>
+            </MenuItem>
+          ))}
+        </Menu>
       </Box>
     </Box>
   )
