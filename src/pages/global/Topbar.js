@@ -47,7 +47,7 @@ const Topbar = ({  sizeWindow, isCollapse}) => {
       zIndex={1}
       // width="calc(100% - 270px)"
       className={`topbar-container ${sizeWindow <= 900 || isCollapse ? 'mobile' : ''}`}
-      backgroundColor={colors.primary[500]}
+      backgroundColor={`${theme.palette.mode === 'dark' ? colors.primary[500] : theme.palette.background.default}`}
     >
       {/* Search Bar */}
       <Box
