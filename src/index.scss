@@ -37,6 +37,7 @@ body,
 .content {
   min-width: 768px;
   padding-left: 270px;
+  transition: padding 0.3s;
   
   &.mobile {
     padding-left: 80px;
